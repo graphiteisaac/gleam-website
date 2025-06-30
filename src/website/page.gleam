@@ -1069,7 +1069,7 @@ gleeunit = \">= 1.0.0 and < 2.0.0\"
       html.text("The "),
       html.code([], [html.text(">= 1.0.1 and < 2.0.0")]),
       html.text(
-        " version constraint means that the project wants any version 
+        " version constraint means that the project wants any version
 greater than or equal to 1.0.1, but less than 2.0.0, which will maximise compatibility while
 avoiding breaking changes as Hex packages adhere to ",
       ),
@@ -1261,8 +1261,8 @@ pub fn main() {
 }
 
 pub fn format_pair_test() {
-  internal.format_pair(\"hello\", \"world\")
-  |> should.equal(\"hello=world\")
+  let greeting = internal.format_pair(\"hello\", \"world\")
+  assert greeting == \"hello=world\"
 }
 ",
     ),
@@ -1712,7 +1712,7 @@ need a name.",
       ]),
       html.li([], [
         html.text(
-          "Alpaca’s syntax is closer to ML family languages, Gleam’s is closer to C 
+          "Alpaca’s syntax is closer to ML family languages, Gleam’s is closer to C
 family languages.",
         ),
       ]),
@@ -2133,7 +2133,7 @@ pub fn documentation(ctx: site.Context) -> fs.File {
       ]),
       html.li([], [
         html.a([attr.href("/writing-gleam/command-line-reference")], [
-          html.text("The Command line reference"),
+          html.text("The command line reference"),
         ]),
       ]),
       html.li([], [
@@ -2366,8 +2366,8 @@ gleam_http = \">= 2.1.0 and < 3.0.0\"
 # Local dependencies can be specified with a path
 my_other_project = { path = \"../my_other_project\" }
 # Git dependencies can also be used
-my_git_library = { git = \"git@github.com:my-project/my-library\", ref = \"a8b3c5d82\" }
-latest_stdlib = { git = \"git@github.com:gleam-lang/stdlib\", ref = \"main\" }
+my_git_library = { git = \"git@github.com:my-project/my-library.git\", ref = \"a8b3c5d82\" }
+latest_stdlib = { git = \"git@github.com:gleam-lang/stdlib.git\", ref = \"main\" }
 
 # The Hex packages the project needs for the tests (optional)
 # These will not be included if the package is published to Hex.
@@ -2415,7 +2415,7 @@ allow_hrtime = false
 # A bool or list of environment variables
 allow_env = [\"DATABASE_URL\"]
 
-# A bool or a list of IP addresses or hostnames (optionally with ports) 
+# A bool or a list of IP addresses or hostnames (optionally with ports)
 allow_net = [\"example.com:443\"]
 
 # A bool or a list of paths
@@ -3566,25 +3566,20 @@ pub fn main() {
           html.p([], [
             html.text(
               "Thanks to its multi-core actor based concurrency system that can run
-              millions of concurrent tasks, fast immutable data structures, and a
-              concurrent garbage collector that never stops the world, your service
-              can scale and stay lightning fast with ease.",
+              millions of concurrent green threads, fast immutable data
+              structures, and a concurrent garbage collector that never stops
+              the world, your service can scale and stay lightning fast with ease.",
             ),
           ]),
         ]),
         highlighted_gleam_pre_code(
-          "fn spawn_task(i) {
-  task.async(fn() {
+          "pub fn main() {
+  // Run loads of green threads, no problem
+  list.range(0, 200_000)
+  |> list.each(fn(i) {
     let n = int.to_string(i)
     io.println(\"Hello from \" <> n)
   })
-}
-
-pub fn main() {
-  // Run loads of threads, no problem
-  list.range(0, 200_000)
-  |> list.map(spawn_task)
-  |> list.each(task.await_forever)
 }",
         ),
       ]),
@@ -3697,7 +3692,7 @@ It has these fields:
         highlighted_gleam_pre_code(
           "@external(erlang, \"Elixir.HPAX\", \"new\")
 pub fn new(size: Int) -> Table
-  
+
 
 
 pub fn register_event_handler() {
@@ -3818,6 +3813,7 @@ fn header(
             html.img([
               attr.alt("Lucy the star, Gleam's mascot"),
               attr.src("/images/lucy/lucy.svg"),
+              attr.class("navbar-lucy"),
             ]),
             html.text("Gleam"),
           ]),
