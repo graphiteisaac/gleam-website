@@ -3463,12 +3463,12 @@ pub fn community(ctx: site.Context) -> fs.File {
 
   let code_of_conduct =
     "https://github.com/gleam-lang/gleam/blob/main/CODE_OF_CONDUCT.md"
+
   let content = [
     html.article([class("prose")], [
       html.p([], [
         html.text(
-          "You can talk to and get help from other Gleam community members in the
-        following forums:",
+          "If you’d like to get involved in the Gleam community and chat to other members about what they’re up to, you can join our Discord community chat, contribute on GitHub, follow us on social media, and subscribe to Gleam Weekly",
         ),
       ]),
       html.ul([attr.class("community-socials")], [
@@ -3476,13 +3476,16 @@ pub fn community(ctx: site.Context) -> fs.File {
           html.a(
             [attr.href("https://discord.gg/Fm8Pwmy"), attr.target("_blank")],
             [
-              html.span([attr.class("community-socials__logo")], [
+              html.figure([attr.class("community-socials__logo")], [
                 html.img([
                   attr.alt("Discord Icon"),
                   attr.src("/images/community/discord.svg"),
                 ]),
               ]),
-              html.span([], [html.text("Gleam’s web chat on Discord")]),
+              html.div([], [
+                html.h3([], [html.text("Discord Community")]),
+                html.p([], [html.text("Lively and friendly, just like Gleam!")]),
+              ]),
             ],
           ),
         ]),
@@ -3493,13 +3496,16 @@ pub fn community(ctx: site.Context) -> fs.File {
               attr.target("_blank"),
             ],
             [
-              html.span([attr.class("community-socials__logo")], [
+              html.figure([attr.class("community-socials__logo")], [
                 html.img([
                   attr.alt("GitHub Icon"),
                   attr.src("/images/community/github.svg"),
                 ]),
               ]),
-              html.span([], [html.text("Gleam discussions on Github")]),
+              html.div([], [
+                html.h3([], [html.text("gleam-lang on Github")]),
+                html.p([], [html.text("Get involved and contribute!")]),
+              ]),
             ],
           ),
         ]),
