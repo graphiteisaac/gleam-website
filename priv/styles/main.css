@@ -1109,8 +1109,8 @@ pre code {
 
 .prose .alert {
   border-left: 3px solid var(--alert-color);
-  padding: 1rem 1.4rem;
-  margin: .8rem 0;
+  padding: var(--gap-2);
+  margin: var(--gap-1) 0;
 }
 
 .prose .alert h3 {
@@ -1130,17 +1130,17 @@ pre code {
 }
 
 .prose .alert-info {
-  --alert-color: #5facff;
+  --alert-color: var(--color-code-blue);
   --alert-emoji: 'ℹ️';
 }
 
 .prose .alert-error {
-  --alert-color: #ff5f5f;
+  --alert-color: var(--color-code-red);
   --alert-emoji: '❗';
 }
 
 .prose .alert-warning {
-  --alert-color: #ffc55f;
+  --alert-color: var(--color-code-orange);
   --alert-emoji: '🔔';
 }
 
