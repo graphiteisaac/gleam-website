@@ -2197,12 +2197,12 @@ details>summary {
 
 /* Guides index page */
 
-.tag-search-form {
+.guide-search-form {
   position: relative;
   margin-bottom: 1rem;
 }
 
-.tag-search-form input {
+.guide-search-form input {
   background: transparent;
   border: var(--color-warm-charcoal) 1px solid;
   padding: .9rem 2rem .9rem 3rem;
@@ -2214,15 +2214,15 @@ details>summary {
   font-size: 1rem;
 }
 
-.tag-search-form input::placeholder {
+.guide-search-form input::placeholder {
   color: var(--color-text-subtle);
 }
 
-.tag-search-form input:focus {
+.guide-search-form input:focus {
   border-color: var(--color-faff-pink);
 }
 
-.tag-search-form .search-icon {
+.guide-search-form .search-icon {
   position: absolute;
   top: 14px;
   left: 14px;
@@ -2230,7 +2230,7 @@ details>summary {
   height: 24px;
 }
 
-.tag-filter-label {
+.guide-filter-label {
   font-family: var(--font-family-title);
   margin: 2rem 0 .4rem;
 }
@@ -2269,4 +2269,22 @@ details>summary {
 .tag-picker li button:hover {
   border-color: var(--color-faff-pink);
   background-color: var(--color-lukewarm-charcoal);
+}
+
+.guides-list.empty:before {
+  content: 'Sorry, it looks like no guides matched your search.';
+  padding: 2rem;
+  font-weight: var(--font-weight-title-bold);
+  color: var(--color-white);
+  font-size: 1rem;
+  text-align: center;
+  display: block;
+  text-decoration: none !important;
+}
+
+/* Make the empty display span both columns on larger screens */
+@media screen and (min-width: 992px) {
+  .guides-list.empty:before {
+    grid-column: 1 / span 2;
+  }
 }
